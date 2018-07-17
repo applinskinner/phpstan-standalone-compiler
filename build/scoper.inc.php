@@ -26,7 +26,11 @@ return [
 			if ($filePath !== 'src/Testing/LevelsTestCase.php') {
 				return $content;
 			}
-			return str_replace(sprintf('\\%s\\PHPUnit\\Framework\\AssertionFailedError', $prefix), '\\PHPUnit\\Framework\\AssertionFailedError', $content);
+			return str_replace(
+				[sprintf('\\%s\\PHPUnit\\Framework\\AssertionFailedError', $prefix), sprintf('\\%s\\PHPUnit\\Framework\\TestCase', $prefix)],
+				['\\PHPUnit\\Framework\\AssertionFailedError', '\\PHPUnit\\Framework\\TestCase'],
+				$content
+			);
 		},
 	],
 	'whitelist' => [
