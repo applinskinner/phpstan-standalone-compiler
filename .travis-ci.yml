@@ -1,0 +1,7 @@
+language: php
+
+jobs:
+  include:
+    - stage: e2e
+      php: 7.2
+      script: run-e2e-tests.sh
