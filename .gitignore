@@ -1,3 +1,5 @@
+/e2e/vendor
+/e2e/composer.lock
 /tmp/build
 /vendor
 /tmp/phpstan.phar
