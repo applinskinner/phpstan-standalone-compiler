@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ev
 
 # compile phar
 if [ ! -f tmp/phpstan.phar ]; then
