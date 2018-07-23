@@ -3,6 +3,7 @@ set -e
 
 # compile phar
 if [ ! -f tmp/phpstan.phar ]; then
+    composer install
     php bin/compile
 fi
 
