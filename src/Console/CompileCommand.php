@@ -55,8 +55,14 @@ final class CompileCommand extends Command
 		}
 		$this->filesystem->mkdir($this->buildDir);
 
-		$this->processFactory->create(sprintf('git clone %s .', \escapeshellarg($input->getArgument('repository'))), $this->buildDir);
-		$this->processFactory->create(sprintf('git checkout --force %s', \escapeshellarg($input->getArgument('version'))), $this->buildDir);
+		/** @var string $repository */
+		$repository = $input->getArgument('repository');
+
+		/** @var string $version */
+		$version = $input->getArgument('version');
+
+		$this->processFactory->create(sprintf('git clone %s .', \escapeshellarg($repository)), $this->buildDir);
+		$this->processFactory->create(sprintf('git checkout --force %s', \escapeshellarg($version)), $this->buildDir);
 		$this->processFactory->create('composer require --no-update dg/composer-cleaner:^2.0', $this->buildDir);
 		$this->fixComposerJson($this->buildDir);
 		$this->processFactory->create('composer update --no-dev --classmap-authoritative', $this->buildDir);
