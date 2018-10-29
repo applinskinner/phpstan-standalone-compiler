@@ -3,8 +3,8 @@ set -ev
 
 # compile phar
 if [ ! -f tmp/phpstan.phar ]; then
-    composer install
-    php bin/compile
+    composer install --no-interaction
+    php bin/compile $1
 fi
 
 # setup
