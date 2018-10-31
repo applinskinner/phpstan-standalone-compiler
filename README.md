@@ -1,10 +1,14 @@
-# PHAR Compiler for PHPStan
+# PHAR Compiler for PHPStan (standalone)
+
+A fork of the [phpstan-compiler](https://github.com/phpstan/phpstan-compiler) to re-scope the PhpParser namespace.
+
+This allows PHPStan to be used for projects depending on PhpParser 2.x/3.x, but with the caveat that it will not work with PHPStan extensions.
 
 ## Installation
 
 ```bash
-git clone https://github.com/phpstan/phpstan-compiler
-cd phpstan-compiler
+git clone https://github.com/applinskinner/phpstan-standalone-compiler
+cd phpstan-standalone-compiler
 composer install
 ```
 
